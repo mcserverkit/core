@@ -17,13 +17,12 @@ func main() {
 		for i, arg := range os.Args[2:] {
 			if arg == "--name" {
 				fmt.Println("Creating server...")
-				if strings.HasPrefix(os.Args[i+1], "--") {
+				if strings.HasPrefix(os.Args[2:][i+1], "--") {
 					fmt.Println("--name requires a value")
 					os.Exit(1)
 				} else {
-					name = os.Args[i+1]
+					name = os.Args[2:][i+1]
 				}
-				return
 			}
 		}
 
