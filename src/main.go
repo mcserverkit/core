@@ -23,16 +23,11 @@ func main() {
 		for i, arg := range arguments {
 			if arg == "--name" {
 				fmt.Println("Creating server...")
-				if strings.HasPrefix(arguments[i+1], "--") {
-					fmt.Println("--name requires a value")
-					os.Exit(1)
-				} else {
+				if !strings.HasPrefix(arguments[i+1], "--") {
 					flags["name"] = arguments[i+1]
 				}
 			} else if arg == "--version" {
-				if strings.HasPrefix(arguments[i+1], "--") {
-
-				} else {
+				if !strings.HasPrefix(arguments[i+1], "--") {
 					flags["version"] = arguments[i+1]
 				}
 			}
