@@ -24,11 +24,15 @@ func main() {
 					name = os.Args[i+1]
 				}
 				return
-			} else {
-				fmt.Println("--name needed to create server")
-				os.Exit(1)
 			}
 		}
+
+		if name == "" {
+			fmt.Println("--name needed to create server")
+			os.Exit(1)
+		}
+
+		os.Mkdir(name, 0755)
 	case "start":
 		fmt.Println(os.Args[1], os.Args[2:])
 		os.Exit(0)
