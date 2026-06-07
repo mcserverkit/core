@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"slices"
 )
 
@@ -33,5 +34,6 @@ func install(version string) {
 		fmt.Println(version)
 	} else {
 		fmt.Println("Available versions:", paper.Versions)
+		os.Exit(1)
 	}
 }
