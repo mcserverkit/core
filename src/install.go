@@ -34,9 +34,7 @@ func install(version string) {
 
 	parse(PaperAPI, &PaperResponse)
 
-	if version == "latest" {
-		version = PaperResponse.Versions[len(PaperResponse.Versions)-1]
-	} else if !slices.Contains(PaperResponse.Versions, version) {
+	if !slices.Contains(PaperResponse.Versions, version) {
 		fmt.Println("Available versions:", PaperResponse.Versions)
 		os.Exit(1)
 	}
