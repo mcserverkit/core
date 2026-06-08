@@ -6,21 +6,15 @@ import (
 	"net/http"
 )
 
-func parse(url string, target any) {
+func parse(url string, target any) error {
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
 
 	defer resp.Body.Close()
 
-	err = json.NewDecoder(resp.Body).Decode(target)
-
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	return json.NewDecoder(resp.Body).Decode(target)
 }
 
 func install(version string) {
@@ -34,7 +28,11 @@ func install(version string) {
 		} `json:"downloads"`
 	}
 
-	parse(PaperAPI, &PaperResponse)
+	err := parse(PaperAPI, &PaperResponse)
+
+	if err != nil {
+		fmt.Println("Error parsing JSON:", err)
+	}
 
 	fmt.Println(PaperResponse.Downloads.ServerDefault.Url)
 }
