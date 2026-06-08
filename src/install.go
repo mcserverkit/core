@@ -40,4 +40,14 @@ func install(version string) {
 		fmt.Println("Available versions:", PaperResponse.Versions)
 		os.Exit(1)
 	}
+
+	var VersionResponse struct {
+		Builds []int `json:"builds"`
+	}
+
+	parse(PaperAPI+"/versions/"+version, &VersionResponse)
+
+	build := VersionResponse.Builds[len(VersionResponse.Builds)-1]
+
+	fmt.Println(build)
 }
