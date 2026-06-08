@@ -9,7 +9,9 @@ import (
 )
 
 func install(version string) {
-	resp, err := http.Get("https://api.papermc.io/v2/projects/paper")
+	url := "https://api.papermc.io/v2/projects/paper"
+
+	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
 		return
