@@ -11,7 +11,7 @@ func start(name string, memory string) {
 	config := readConfig()
 	path := filepath.Join("..", config.Jar)
 
-	cmd := exec.Command("java", "-jar", path)
+	cmd := exec.Command("java", "-jar", path, "--nogui")
 	if memory != "" {
 		cmd = exec.Command("java", "-Xms"+memory+"G", "-Xmx"+memory+"G", "-jar", "--nogui")
 	}
