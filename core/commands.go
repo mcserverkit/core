@@ -49,7 +49,11 @@ func Create(name string) error {
 }
 
 func Start(name string, memory string) error {
-	config := ReadConfig()
+	config, err := ReadConfig()
+	if err != nil {
+		return err
+	}
+
 	path := filepath.Join("..", config.Jar)
 
 	cmd := exec.Command("java", "-jar", path, "--nogui")
@@ -57,7 +61,7 @@ func Start(name string, memory string) error {
 		cmd = exec.Command("java", "-Xms"+memory, "-Xmx"+memory, "-jar", "--nogui")
 	}
 	cmd.Dir = name
-	err := cmd.Run()
+	err = cmd.Run()
 
 	if err != nil {
 		return err
