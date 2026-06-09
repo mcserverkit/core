@@ -7,13 +7,17 @@ import (
 	"path/filepath"
 )
 
-func Install(version string) {
+func Install(version string) error {
 	if version == "latest" {
 		var VersionResponse struct {
 			Versions map[string][]string `json:"versions"`
 		}
 
-		Parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
+		err := Parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
+		if err != nil {
+			return err
+		}
+
 		version = VersionResponse.Versions["26.1"][0]
 	}
 
@@ -28,9 +32,22 @@ func Install(version string) {
 		} `json:"downloads"`
 	}
 
-	Parse(PaperAPI, &PaperResponse)
-	DownloadFile(PaperResponse.Downloads.ServerDefault.Name, PaperResponse.Downloads.ServerDefault.Url)
-	CreateConfig(Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
+	err := Parse(PaperAPI, &PaperResponse)
+	if err != nil {
+		return err
+	}
+
+	err = DownloadFile(PaperResponse.Downloads.ServerDefault.Name, PaperResponse.Downloads.ServerDefault.Url)
+	if err != nil {
+		return err
+	}
+
+	err = CreateConfig(Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func Create(name string) error {
