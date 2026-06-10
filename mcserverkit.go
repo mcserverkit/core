@@ -1,6 +1,7 @@
 package mcserverkit
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -47,7 +48,11 @@ func Install(version string) error {
 	return nil
 }
 
-func Create(name string) error {
+func Create(name string, eula bool) error {
+	if !eula {
+		return fmt.Errorf("minecraft eula must be accepted to create a server")
+	}
+
 	err := os.Mkdir(name, 0755)
 	if err != nil {
 		return err
