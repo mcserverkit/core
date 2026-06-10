@@ -1,5 +1,7 @@
 # MCServerKit
 
+A Go library for creating Minecraft servers. This library is used in MCServerKit's [CLI](https://github.com/mcserverkit/cli) and [GUI](https://github.com/mcserverkit/gui).
+
 ## Installing
 
 ```bash
