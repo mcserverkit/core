@@ -1,3 +1,5 @@
+# <img src="https://avatars.githubusercontent.com/u/291606995?s=200&v=4" height="48" style="vertical-align:middle"> MCServerKit
+
 ## Installing
 
 ```bash
