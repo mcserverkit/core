@@ -57,6 +57,25 @@ int main()
 }
 ```
 
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 3.16)
+project(example LANGUAGES C)
+
+include(FetchContent)
+
+FetchContent_Declare(
+	mcserverkit
+	GIT_REPOSITORY https://github.com/mcserverkit/core
+	GIT_TAG v0.1.3
+)
+FetchContent_MakeAvailable(mcserverkit)
+
+add_executable(example main.c)
+target_link_libraries(example PRIVATE mcserverkit)
+```
+
 ## API
 
 Go needs package names before each function so you need to write `mcserverkit` to access them.
