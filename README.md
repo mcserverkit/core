@@ -70,9 +70,9 @@ func main() {
 }
 ```
 
-`main.cc`
-
 ## C Usage
+
+`main.c`
 
 ```c
 #include "mcserverkit.h"
