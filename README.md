@@ -59,65 +59,24 @@ int main()
 
 ## API
 
-> [!NOTE]
-> Only in Go you must include `mcserverkit` prefix before every function
+Only in Go you must include `mcserverkit` prefix before every function
 
-| Function | Go                      | C/C++       |
-| -------- | ----------------------- | ----------- |
-| Install  | `mcserverkit.Install()` | `Install()` |
-| Create   | `mcserverkit.Create()`  | `Create()`  |
-| Start    | `mcserverkit.Start()`   | `Start()`   |
+| Function | Go                                | C/C++                 |
+| -------- | --------------------------------- | --------------------- |
+| Install  | `mcserverkit.Install(version)`    | `Install(version)`    |
+| Create   | `mcserverkit.Create(name, eula)`  | `Create(name, eula)`  |
+| Start    | `mcserverkit.Start(name, memory)` | `Start(name, memory)` |
 
-Install a server version
-
-Go
-
-```go
-mcserverkit.Install(version string)
-```
-
-C/C++
-
-```c
-Install(const char* version)
-```
-
-</details>
+Install
 
 - `version`: The Minecraft version the server runs on, pass "latest" to install the latest release.
 
-Create a server
-
-Go
-
-```go
-mcserverkit.Create(name string, eula bool)
-```
-
-C/C++
-
-```c
-Create(const char* name, bool eula)
-```
-
-</details>
+Create
 
 - `name`: Folder name of your server
 - `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
 
-Start your server
-
-Go
-
-```go
-mcserverkit.Start(name string, memory ...string)
-```
-
-C/C++
-
-```c
-Start(const char* name, const char* memory)
-```
+Start
 
 > [!NOTE]
 > In C you must pass `NULL` to memory if you don't want to allocate a maximum amount of memory
