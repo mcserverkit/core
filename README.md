@@ -61,17 +61,13 @@ int main()
 
 Install a server version
 
-<details open>
-  <summary>Go</summary>
+Go
 
 ```go
 mcserverkit.Install(version string)
 ```
 
-</details>
-
-<details>
-  <summary>C/C++</summary>
+C/C++
 
 ```c
 Install(const char* version)
@@ -83,17 +79,13 @@ Install(const char* version)
 
 Create a server
 
-<details open>
-  <summary>Go</summary>
+Go
 
 ```go
 mcserverkit.Create(name string, eula bool)
 ```
 
-</details>
-
-<details>
-  <summary>C/C++</summary>
+C/C++
 
 ```c
 Install(const char* name, bool eula)
