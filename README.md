@@ -79,7 +79,7 @@ Create
 Start
 
 > [!NOTE]
-> In C you must pass `NULL` to memory if you don't want to allocate a maximum amount of memory
+> C doesn't support optional parameters so you must pass `NULL` if you don't want to set a maximum amount of memory
 
 - `name`: Folder name of your server
 - `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
