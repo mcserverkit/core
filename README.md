@@ -59,7 +59,7 @@ int main()
 
 ## API
 
-Only in Go you must include `mcserverkit` prefix before every function
+Go needs package names before each function so you need to write `mcserverkit` to access them.
 
 | Function | Go                                | C/C++                 |
 | -------- | --------------------------------- | --------------------- |
