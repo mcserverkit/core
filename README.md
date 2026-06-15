@@ -4,6 +4,8 @@ A library for creating and managing Minecraft servers in Go & C/C++
 
 ## Go Usage
 
+Install the package:
+
 ```bash
 go get mcserverkit.github.io
 ```
@@ -71,6 +73,36 @@ func main() {
 ```
 
 ## C Usage
+
+<details>
+  <summary>API</summary>
+  Install a server version
+
+```c
+Install(version string)
+```
+
+- `version`: The Minecraft version the server runs on, pass "latest" to install the latest release.
+
+Create a server
+
+```c
+Create(name string, eula bool)
+```
+
+- `name`: Folder name of your server
+- `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
+
+Start your server
+
+```c
+Start(name string, memory ...string)
+```
+
+- `name`: Folder name of your server
+- `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
+
+</details>
 
 `main.c`
 
