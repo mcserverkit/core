@@ -69,3 +69,18 @@ func main() {
 	}
 }
 ```
+
+`main.cc`
+
+## C Usage
+
+```c
+#include "mcserverkit.h"
+
+int main()
+{
+	Install("1.21.1")
+	Create("MyServer", 1)
+	Start("MyServer", "4G")
+}
+```
