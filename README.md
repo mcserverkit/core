@@ -83,3 +83,9 @@ Start
 
 - `name`: Folder name of your server
 - `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
+
+## Building
+
+```
+go build -buildmode=c-shared -o mcserverkit.dll ./bind
+```
