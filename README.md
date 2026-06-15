@@ -88,7 +88,7 @@ mcserverkit.Create(name string, eula bool)
 C/C++
 
 ```c
-Install(const char* name, bool eula)
+Create(const char* name, bool eula)
 ```
 
 </details>
