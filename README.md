@@ -51,9 +51,9 @@ func main() {
 
 int main()
 {
-	Install("1.21.1")
-	Create("MyServer", 1)
-	Start("MyServer", "4G")
+	Install("1.21.1");
+	Create("MyServer", 1);
+	Start("MyServer", "4G");
 }
 ```
 
