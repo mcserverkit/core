@@ -62,11 +62,11 @@ int main()
 > [!NOTE]
 > Only in Go you must include `mcserverkit` prefix before every function
 
-| Function | Go                    | C/C++     |
-| -------- | --------------------- | --------- |
-| Install  | mcserverkit.Install() | Install() |
-| Create   | mcserverkit.Create()  | Create()  |
-| Start    | mcserverkit.Start()   | Start()   |
+| Function | Go                      | C/C++       |
+| -------- | ----------------------- | ----------- |
+| Install  | `mcserverkit.Install()` | `Install()` |
+| Create   | `mcserverkit.Create()`  | `Create()`  |
+| Start    | `mcserverkit.Start()`   | `Start()`   |
 
 Install a server version
 
