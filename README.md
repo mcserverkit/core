@@ -83,9 +83,23 @@ Install(const char* version)
 
 Create a server
 
+<details open>
+  <summary>Go</summary>
+
 ```go
 mcserverkit.Create(name string, eula bool)
 ```
+
+</details>
+
+<details>
+  <summary>C/C++</summary>
+
+```c
+Install(const char* name, bool eula)
+```
+
+</details>
 
 - `name`: Folder name of your server
 - `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
