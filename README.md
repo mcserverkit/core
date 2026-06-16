@@ -76,6 +76,42 @@ add_executable(example main.c)
 target_link_libraries(example PRIVATE mcserverkit)
 ```
 
+## C++ Usage
+
+`main.cpp`
+
+```c++
+extern "C" {
+	#include "mcserverkit.h"
+}
+
+int main()
+{
+	Install("1.21.1");
+	Create("MyServer", 1);
+	Start("MyServer", "4G");
+}
+```
+
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 3.16)
+project(example LANGUAGES CXX)
+
+include(FetchContent)
+
+FetchContent_Declare(
+	mcserverkit
+	GIT_REPOSITORY https://github.com/mcserverkit/core
+	GIT_TAG v0.1.3
+)
+FetchContent_MakeAvailable(mcserverkit)
+
+add_executable(example main.cpp)
+target_link_libraries(example PRIVATE mcserverkit)
+```
+
 ## API
 
 Go needs package names before each function so you need to write `mcserverkit` to access them.
