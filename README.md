@@ -145,6 +145,8 @@ Windows:
 
 ```bash
 go build -buildmode=c-shared -o mcserverkit.dll ./bind
+gendef mcserverkit.dll
+dlltool -d mcserverkit.def -l libmcserverkit.a
 ```
 
 Linux:
