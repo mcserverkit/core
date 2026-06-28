@@ -46,10 +46,10 @@ jobs:
           dlltool -d mcserverkit.def -l libmcserverkit.a
       - name: Compress-Archive
         if: matrix.goos == 'windows'
-        run: Compress-Archive -Path ${{ matrix.output }}, libmcserverkit.a -DestinationPath ${{ matrix.zip }}
+        run: Compress-Archive -Path ${{ matrix.output }}, mcserverkit.h, libmcserverkit.a -DestinationPath ${{ matrix.zip }}
       - name: zip
         if: matrix.goos != 'windows'
-        run: zip ${{ matrix.zip }} ${{ matrix.output }}
+        run: zip ${{ matrix.zip }} ${{ matrix.output }} mcserverkit.h
       - name: upload
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
