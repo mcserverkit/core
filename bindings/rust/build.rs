@@ -7,16 +7,18 @@ fn main() {
         return;
     };
     // https://stackoverflow.com/questions/43292357/how-can-one-detect-the-os-type-using-rust
-    let filename = if cfg!(target_os = "windows") {
-        format!("mcserverkit.windows-{architecture}.zip")
+    let os = if cfg!(target_os = "windows") {
+        "windows"
     } else if cfg!(target_os = "linux") {
-        format!("mcserverkit.linux-{architecture}.zip")
+        "linux"
     } else if cfg!(target_os = "macos") {
-        format!("mcserverkit.macos-{architecture}.zip")
+        "macos"
     } else {
         println!("Operating system not supported");
         return;
     };
+
+    let filename = format!("mcserverkit.{os}-{architecture}.zip");
 
     println!("{filename}");
 }
