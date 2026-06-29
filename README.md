@@ -76,6 +76,11 @@ add_executable(example main.c)
 target_link_libraries(example PRIVATE mcserverkit)
 ```
 
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+```
+
 ## C++ Usage
 
 `main.cpp`
@@ -91,11 +96,6 @@ int main()
 	Create("MyServer", 1);
 	Start("MyServer", "4G");
 }
-```
-
-```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j
 ```
 
 `CMakeLists.txt`
