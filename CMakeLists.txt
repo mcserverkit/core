@@ -21,6 +21,10 @@ endif()
 
 set(h "${CMAKE_BINARY_DIR}/mcserverkit.h")
 
+set(asset "mcserverkit.${os}-${architecture}.zip")
+set(url
+    "https://github.com/mcserverkit/mcserverkit/releases/latest/download/${asset}")
+
 if(WIN32)
   add_custom_target(bin ALL DEPENDS "${lib}" "${h}" "${import_lib}")
 else()
