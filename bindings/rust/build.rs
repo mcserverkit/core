@@ -19,6 +19,8 @@ fn main() {
     };
 
     let filename = format!("mcserverkit.{os}-{architecture}.zip");
+    let url =
+        format!("https://github.com/mcserverkit/mcserverkit/releases/latest/download/{filename}");
 
-    println!("{filename}");
+    println!("{url}");
 }
