@@ -1,3 +1,5 @@
+use std::process::Command;
+
 fn main() {
     let architecture = if cfg!(target_arch = "x86_64") {
         "x86_64"
@@ -23,4 +25,16 @@ fn main() {
         format!("https://github.com/mcserverkit/mcserverkit/releases/latest/download/{asset}");
 
     println!("{url}");
+
+    let curl = if cfg!(target_os = "windows") {
+        "curl.exe"
+    } else {
+        "curl"
+    };
+
+    // https://doc.rust-lang.org/std/process/struct.Command.html
+    let _output = Command::new(curl)
+        .args(["-LO", &url])
+        .output()
+        .expect("failed to execute process");
 }
