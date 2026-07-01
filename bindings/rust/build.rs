@@ -37,4 +37,19 @@ fn main() {
         .args(["-LO", &url])
         .output()
         .expect("failed to execute process");
+
+    if cfg!(target_os = "windows") {
+        Command::new("powershell")
+            .args([
+                "-Command",
+                &format!("Expand-Archive -Path '{asset}' -DestinationPath . -Force"),
+            ])
+            .output()
+            .expect("failed to execute process");
+    } else {
+        Command::new("unzip")
+            .args([&asset, "-o"])
+            .output()
+            .expect("failed to execute process");
+    }
 }
