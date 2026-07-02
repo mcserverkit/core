@@ -153,11 +153,11 @@ cmake --build build -j
 
 Go needs package names before each function so you need to write `mcserverkit` to access them.
 
-| Function | Go                                | C/C++                 |
-| -------- | --------------------------------- | --------------------- |
-| Install  | `mcserverkit.Install(version)`    | `Install(version)`    |
-| Create   | `mcserverkit.Create(name, eula)`  | `Create(name, eula)`  |
-| Start    | `mcserverkit.Start(name, memory)` | `Start(name, memory)` |
+| Function | Go                                | C/C++                 | Rust                               |
+| -------- | --------------------------------- | --------------------- | ---------------------------------- |
+| Install  | `mcserverkit.Install(version)`    | `Install(version)`    | `mcserverkit::install(version)`    |
+| Create   | `mcserverkit.Create(name, eula)`  | `Create(name, eula)`  | `mcserverkit::create(name, eula)`  |
+| Start    | `mcserverkit.Start(name, memory)` | `Start(name, memory)` | `mcserverkit::start(name, memory)` |
 
 Install
 
