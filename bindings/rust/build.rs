@@ -25,8 +25,6 @@ fn main() {
         format!("https://github.com/mcserverkit/mcserverkit/releases/latest/download/{asset}");
     let out_dir = std::env::var("OUT_DIR").unwrap();
 
-    println!("{url}");
-
     let curl = if cfg!(target_os = "windows") {
         "curl.exe"
     } else {
