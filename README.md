@@ -149,6 +149,27 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 ```
 
+## Rust Usage
+
+```rust
+fn main() {
+    let err = mcserverkit::install("1.21.1");
+    if err != None {
+        println!("Error installing 1.21.1:");
+    }
+
+	let err = mcserverkit::create("MyServer", true);
+    if err != None {
+        println!("Error creating MyServer:");
+    }
+
+	let err = mcserverkit::start("MyServer", "4G");
+    if err != None {
+        println!("Error starting MyServer:");
+    }
+}
+```
+
 ## API
 
 Go needs package names before each function so you need to write `mcserverkit` to access them.
