@@ -48,13 +48,34 @@ func main() {
 
 ```c
 #include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "mcserverkit.h"
 
 int main()
 {
-	Install("1.21.1");
-	Create("MyServer", true);
-	Start("MyServer", "4G");
+	char* err = Install("1.21.1");
+	if (err != NULL) {
+		printf("Error installing 1.21.1:%s", err);
+		free(err);
+		return 1;
+	}
+
+	err = Create("MyServer", true);
+	if (err != NULL) {
+		printf("Error creating MyServer:%s", err);
+		free(err);
+		return 1;
+	}
+
+	err = Start("MyServer", "4G");
+	if (err != NULL) {
+		printf("Error starting MyServer:%s", err);
+		free(err);
+		return 1;
+	}
+
+	return 0;
 }
 ```
 
