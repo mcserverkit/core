@@ -23,6 +23,7 @@ fn main() {
     let asset = format!("mcserverkit.{os}-{architecture}.zip");
     let url =
         format!("https://github.com/mcserverkit/mcserverkit/releases/latest/download/{asset}");
+    let out_dir = std::env::var("OUT_DIR").unwrap();
 
     println!("{url}");
 
@@ -42,17 +43,17 @@ fn main() {
         Command::new("powershell")
             .args([
                 "-Command",
-                &format!("Expand-Archive -Path '{asset}' -DestinationPath . -Force"),
+                &format!("Expand-Archive -Path '{asset}' -DestinationPath '{out_dir}' -Force"),
             ])
             .output()
             .expect("failed to execute process");
     } else {
         Command::new("unzip")
-            .args([&asset, "-o"])
+            .args([&asset, "-d", &out_dir])
             .output()
             .expect("failed to execute process");
     }
 
-    println!("cargo:rustc-link-search=native=.");
+    println!("cargo:rustc-link-search=native={}", out_dir);
     println!("cargo:rustc-link-lib=mcserverkit");
 }
