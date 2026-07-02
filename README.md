@@ -2,6 +2,10 @@
 
 A library for creating and managing Minecraft servers in Go & C/C++
 
+## Prerequisites
+
+- Java
+
 ## Go Usage
 
 Install the package:
