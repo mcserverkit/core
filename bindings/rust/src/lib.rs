@@ -6,12 +6,14 @@ unsafe extern "C" {
     fn Start(name: *const ffi::c_char, memory: *const ffi::c_char);
 }
 
-pub fn install() {
-    unsafe { Install() }
+pub fn install(version: &str) {
+    let version = ffi::CString::new(version).expect("");
+    unsafe { Install(version.as_ptr()) }
 }
 
-pub fn create() {
-    unsafe { Create() }
+pub fn create(name: &str, eula: bool) {
+    let name = ffi::CString::new(name).expect("");
+    unsafe { Create(name.as_ptr(), eula) }
 }
 
 pub fn start() {
