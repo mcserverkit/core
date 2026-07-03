@@ -1,15 +1,15 @@
 use std::ffi;
 
 unsafe extern "C" {
-    fn Install(version: *const ffi::c_char) -> *const ffi::c_char;
-    fn Create(name: *const ffi::c_char, eula: bool) -> *const ffi::c_char;
-    fn Start(name: *const ffi::c_char, memory: *const ffi::c_char) -> *const ffi::c_char;
+    unsafe fn Install(version: *const ffi::c_char) -> *const ffi::c_char;
+    unsafe fn Create(name: *const ffi::c_char, eula: bool) -> *const ffi::c_char;
+    unsafe fn Start(name: *const ffi::c_char, memory: *const ffi::c_char) -> *const ffi::c_char;
 }
 
 pub fn install(version: &str) -> Option<String> {
-    let version = ffi::CString::new(version).expect("");
+    let version: ffi::CString = ffi::CString::new(version).expect("");
     unsafe {
-        let err = Install(version.as_ptr());
+        let err: *const i8 = Install(version.as_ptr());
         if err.is_null() {
             None
         } else {
@@ -19,9 +19,9 @@ pub fn install(version: &str) -> Option<String> {
 }
 
 pub fn create(name: &str, eula: bool) -> Option<String> {
-    let name = ffi::CString::new(name).expect("");
+    let name: ffi::CString = ffi::CString::new(name).expect("");
     unsafe {
-        let err = Create(name.as_ptr(), eula);
+        let err: *const i8 = Create(name.as_ptr(), eula);
         if err.is_null() {
             None
         } else {
@@ -31,10 +31,10 @@ pub fn create(name: &str, eula: bool) -> Option<String> {
 }
 
 pub fn start(name: &str, memory: &str) -> Option<String> {
-    let name = ffi::CString::new(name).expect("");
-    let memory = ffi::CString::new(memory).expect("");
+    let name: ffi::CString = ffi::CString::new(name).expect("");
+    let memory: ffi::CString = ffi::CString::new(memory).expect("");
     unsafe {
-        let err = Start(name.as_ptr(), memory.as_ptr());
+        let err: *const i8 = Start(name.as_ptr(), memory.as_ptr());
         if err.is_null() {
             None
         } else {
