@@ -151,6 +151,14 @@ cmake --build build -j
 
 ## Rust Usage
 
+Install using Cargo:
+
+```bash
+cargo add mcserverkit
+```
+
+`main.rs`
+
 ```rust
 fn main() {
     let err = mcserverkit::install("1.21.1");
